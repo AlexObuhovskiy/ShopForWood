@@ -1,0 +1,28 @@
+import { Injectable } from '@angular/core';
+import { Http, Response } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+import { Good } from '../components/good/models/good.model';
+
+@Injectable()
+export class GoodService {
+    constructor(private http: Http) { }
+
+    public getAllGoods(): Observable<Good[]> {
+        return this.http.get('/api/goods')
+            .map((response) => {
+                return <Good[]>JSON.parse(response.text());
+            })
+    }
+
+    public addGood(good: Good): Observable<Good> {
+        return this.http.post('/api/goods', good)
+            .map((response: Response) => <Good>JSON.parse(response.text()));
+    }
+
+    public deleteGood(id: number): Observable<Good> {
+        return this.http.delete('/api/goods/' + id)
+            .map((response: Response) => <Good>JSON.parse(response.text()));
+    }
+}
