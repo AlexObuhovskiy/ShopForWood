@@ -4,7 +4,9 @@ import { Component, OnInit } from '@angular/core';
     moduleId: module.id,
     selector: 'content',
     template: `
-        <router-outlet></router-outlet>
+        <div>
+            <router-outlet></router-outlet>
+        </div>
     `,
     styleUrls: ['./content.component.css']
 })
