@@ -92,6 +92,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\components\content\content.component.css" />
+    <Content Include="app\components\footer.component\footer.component.css" />
+    <Content Include="app\components\good\good.component.css" />
+    <Content Include="app\components\good\models\good.model.js" />
+    <Content Include="app\components\header\header.component.css" />
+    <Content Include="app\components\page-not-found\page-not-found.component.css" />
     <Content Include="favicon.ico" />
     <Content Include="app\app.component.css" />
     <Content Include="app\app.component.html" />
@@ -118,6 +124,7 @@
     <Content Include="packages.config" />
     <Content Include="package.json" />
     <Content Include="tsconfig.json" />
+    <Content Include="app\components\good\models\good.model.js.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -137,7 +144,18 @@
   <ItemGroup>
     <TypeScriptCompile Include="app\app.component.ts" />
     <TypeScriptCompile Include="app\app.module.ts" />
+    <TypeScriptCompile Include="app\components\about\about.component.ts" />
+    <TypeScriptCompile Include="app\components\content\content.component.ts" />
+    <TypeScriptCompile Include="app\components\content\content.module.ts" />
+    <TypeScriptCompile Include="app\components\footer.component\footer.component.ts" />
+    <TypeScriptCompile Include="app\components\goods-grid\goods-grid.component.ts" />
+    <TypeScriptCompile Include="app\components\goods-grid\goods-grid.module.ts" />
+    <TypeScriptCompile Include="app\components\good\good.component.ts" />
+    <TypeScriptCompile Include="app\components\good\models\good.model.ts" />
+    <TypeScriptCompile Include="app\components\header\header.component.ts" />
+    <TypeScriptCompile Include="app\components\page-not-found\page-not-found.component.ts" />
     <TypeScriptCompile Include="app\main.ts" />
+    <TypeScriptCompile Include="app\services\good.service.ts" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
