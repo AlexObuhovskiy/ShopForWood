@@ -1,7 +1,11 @@
 ﻿using ShopForWood.Models;
+using System.Data.Entity.Infrastructure;
 using System;
 using System.Web.Http;
 using System.Web.Http.Description;
+using System.Data.Entity;
+using System.Net;
+using System.Linq;
 
 namespace ShopForWood.Controllers
 {
@@ -25,6 +29,47 @@ namespace ShopForWood.Controllers
                 //If any exception occurs Internal Server Error i.e. Status Code 500 will be returned  
                 return InternalServerError();
             }
+        }
+
+        [ResponseType(typeof(Good))]
+        public IHttpActionResult GetGood(int id)
+        {
+            Good good = db.Goods.Find(id);
+            if (good == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(good);
+        }
+
+        [ResponseType(typeof(void))]
+        public IHttpActionResult PutGood([FromBody] Good good)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            db.Entry(good).State = EntityState.Modified;
+
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!GoodExists(good.GoodId))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return StatusCode(HttpStatusCode.NoContent);
         }
 
         // POST: api/Goods
@@ -58,6 +103,11 @@ namespace ShopForWood.Controllers
             db.SaveChanges();
 
             return Ok(good);
+        }
+
+        private bool GoodExists(int id)
+        {
+            return db.Goods.Count(e => e.GoodId == id) > 0;
         }
     }
 }

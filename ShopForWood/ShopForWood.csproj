@@ -93,6 +93,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\components\content\content.component.css" />
+    <Content Include="app\components\edit-good\edit-good.component.css" />
     <Content Include="app\components\footer.component\footer.component.css" />
     <Content Include="app\components\good\good.component.css" />
     <Content Include="app\components\good\models\good.model.js" />
@@ -144,9 +145,12 @@
   <ItemGroup>
     <TypeScriptCompile Include="app\app.component.ts" />
     <TypeScriptCompile Include="app\app.module.ts" />
+    <TypeScriptCompile Include="app\app.routes.ts" />
     <TypeScriptCompile Include="app\components\about\about.component.ts" />
     <TypeScriptCompile Include="app\components\content\content.component.ts" />
     <TypeScriptCompile Include="app\components\content\content.module.ts" />
+    <TypeScriptCompile Include="app\components\edit-good\edit-good.component.ts" />
+    <TypeScriptCompile Include="app\components\edit-good\edit-good.module.ts" />
     <TypeScriptCompile Include="app\components\footer.component\footer.component.ts" />
     <TypeScriptCompile Include="app\components\goods-grid\goods-grid.component.ts" />
     <TypeScriptCompile Include="app\components\goods-grid\goods-grid.module.ts" />

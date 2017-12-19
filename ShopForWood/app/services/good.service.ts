@@ -16,6 +16,13 @@ export class GoodService {
             })
     }
 
+    public getGood(id: number): Observable<Good> {
+        return this.http.get('/api/goods/' + id)
+            .map((response) => {
+                return <Good>JSON.parse(response.text());
+            })
+    }
+
     public addGood(good: Good): Observable<Good> {
         return this.http.post('/api/goods', good)
             .map((response: Response) => <Good>JSON.parse(response.text()));
@@ -24,5 +31,10 @@ export class GoodService {
     public deleteGood(id: number): Observable<Good> {
         return this.http.delete('/api/goods/' + id)
             .map((response: Response) => <Good>JSON.parse(response.text()));
+    }
+
+    public editGood(good: Good): Observable<number> {
+        return this.http.put('/api/goods/', good)
+            .map((response: Response) => response.status);
     }
 }
