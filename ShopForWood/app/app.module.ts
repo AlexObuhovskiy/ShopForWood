@@ -13,12 +13,13 @@ import { AboutComponent } from './components/about/about.component';
 import { GoodsGridComponent } from './components/goods-grid/goods-grid.component';
 import { GoodsGridModule } from './components/goods-grid/goods-grid.module';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { EditGoodModule } from './components/edit-good/edit-good.module';
 
 
 @NgModule({
   imports: [
     BrowserModule, FormsModule, HttpModule, GoodsGridModule,
-    ContentModule, RouterModule.forRoot(routes)
+    ContentModule, RouterModule.forRoot(routes), EditGoodModule
   ],
   declarations: [
     AppComponent, HeaderComponent,
