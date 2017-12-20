@@ -14,13 +14,6 @@ import { Good } from '../../models/good.model';
                 <good [instance]="good" (delete)="deleted($event)"></good>
             </div>
         </div>
-        <br>
-        <div>
-            <h1>New good:</h1>
-            <span>Name: <input type="text" [(ngModel)]="newGood.Name"/></span>
-            <span>Description: <input type="text" [(ngModel)]="newGood.Description"/></span>
-            <button (click)="submitNewGood()">Submit</button>
-        </div>
     `,
     changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -48,14 +41,6 @@ export class GoodsGridComponent implements OnInit, OnDestroy {
         this.goodSubscription = this._goodService.getAllGoods()
             .subscribe((goods: Good[]) => {
                 this.goods = goods;
-                this._changeDetector.markForCheck();
-            });
-    }
-
-    private submitNewGood() {
-        this._goodService.addGood(this.newGood)
-            .subscribe((good: Good) => {
-                this.goods.push(good);
                 this._changeDetector.markForCheck();
             });
     }

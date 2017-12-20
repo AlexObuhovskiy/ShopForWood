@@ -21,6 +21,9 @@ import { Component, OnInit } from '@angular/core';
                         <div>
                         <ul class="nav navbar-nav">
                             <li>
+                                <a routerLink="/new-good">Новый товар</a>
+                            </li>
+                            <li>
                                 <a routerLink="/about">О сайте</a>
                             </li>
                         </ul>

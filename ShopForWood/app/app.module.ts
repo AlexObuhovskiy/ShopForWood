@@ -11,19 +11,22 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer.component/footer.component';
 import { AboutComponent } from './components/about/about.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
-import { GoodsGridModule } from './components/goods/components/goods-grid/goods-grid.module';
-import { EditGoodModule } from './components/goods/components/edit-good/edit-good.module';
+import { GoodService } from './components/goods/services/good.service';
+import { GoodsModule } from './components/goods/goods.module';
 
 
 @NgModule({
   imports: [
-    BrowserModule, FormsModule, HttpModule, GoodsGridModule,
-    ContentModule, RouterModule.forRoot(routes), EditGoodModule
+    BrowserModule, FormsModule, HttpModule, GoodsModule,
+    ContentModule, RouterModule.forRoot(routes)
   ],
   declarations: [
     AppComponent, HeaderComponent,
     FooterComponent, AboutComponent, PageNotFoundComponent],
-  providers: [{ provide: APP_BASE_HREF, useValue: '/' }],
+  providers: [
+    { provide: APP_BASE_HREF, useValue: '/' },
+    GoodService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

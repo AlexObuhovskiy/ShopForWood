@@ -23,7 +23,7 @@ export class EditGoodComponent implements OnInit, OnDestroy {
     private goodId: number;
     private subscription: Subscription;
     private good: Good;
-    private submitButtonName: string = "Edit";
+    private submitButtonName: string = 'Edit';
 
     constructor(
         private _goodService: GoodService,
