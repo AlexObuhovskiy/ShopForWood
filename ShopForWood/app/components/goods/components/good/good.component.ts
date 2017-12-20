@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Response } from '@angular/http';
-import { Good } from './models/good.model';
 import { Router } from '@angular/router';
+import { Good } from '../../models/good.model';
 
 @Component({
     moduleId: module.id,
