@@ -3,8 +3,8 @@ import {
     ChangeDetectorRef, ChangeDetectionStrategy
 } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
-import { Good } from '../good/models/good.model';
 import { GoodService } from '../../services/good.service';
+import { Good } from '../../models/good.model';
 
 @Component({
     selector: 'goods-grid',
