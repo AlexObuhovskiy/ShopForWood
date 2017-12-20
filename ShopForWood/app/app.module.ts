@@ -8,7 +8,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { routes } from './app.routes';
 import { ContentModule } from './components/content/content.module';
 import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer.component/footer.component';
+import { FooterComponent } from './components/footer/footer.component';
 import { AboutComponent } from './components/about/about.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { GoodService } from './components/goods/services/good.service';

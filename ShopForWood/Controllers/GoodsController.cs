@@ -105,6 +105,15 @@ namespace ShopForWood.Controllers
             return Ok(good);
         }
 
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
         private bool GoodExists(int id)
         {
             return db.Goods.Count(e => e.GoodId == id) > 0;

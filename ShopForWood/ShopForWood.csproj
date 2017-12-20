@@ -93,10 +93,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\components\content\content.component.css" />
-    <Content Include="app\components\edit-good\edit-good.component.css" />
-    <Content Include="app\components\footer.component\footer.component.css" />
-    <Content Include="app\components\good\good.component.css" />
-    <Content Include="app\components\good\models\good.model.js" />
+    <Content Include="app\components\footer\footer.component.css" />
+    <Content Include="app\components\goods\components\edit-good\edit-good.component.css" />
+    <Content Include="app\components\goods\components\good-form\good-form.component.css" />
+    <Content Include="app\components\goods\components\good\good.component.css" />
+    <Content Include="app\components\goods\components\new-good\new-good.component.css" />
     <Content Include="app\components\header\header.component.css" />
     <Content Include="app\components\page-not-found\page-not-found.component.css" />
     <Content Include="favicon.ico" />
@@ -125,7 +126,6 @@
     <Content Include="packages.config" />
     <Content Include="package.json" />
     <Content Include="tsconfig.json" />
-    <Content Include="app\components\good\models\good.model.js.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -149,13 +149,14 @@
     <TypeScriptCompile Include="app\components\about\about.component.ts" />
     <TypeScriptCompile Include="app\components\content\content.component.ts" />
     <TypeScriptCompile Include="app\components\content\content.module.ts" />
-    <TypeScriptCompile Include="app\components\edit-good\edit-good.component.ts" />
-    <TypeScriptCompile Include="app\components\edit-good\edit-good.module.ts" />
-    <TypeScriptCompile Include="app\components\footer.component\footer.component.ts" />
-    <TypeScriptCompile Include="app\components\goods-grid\goods-grid.component.ts" />
-    <TypeScriptCompile Include="app\components\goods-grid\goods-grid.module.ts" />
-    <TypeScriptCompile Include="app\components\good\good.component.ts" />
-    <TypeScriptCompile Include="app\components\good\models\good.model.ts" />
+    <TypeScriptCompile Include="app\components\footer\footer.component.ts" />
+    <TypeScriptCompile Include="app\components\goods\components\edit-good\edit-good.component.ts" />
+    <TypeScriptCompile Include="app\components\goods\components\good-form\good-form.component.ts" />
+    <TypeScriptCompile Include="app\components\goods\components\goods-grid\goods-grid.component.ts" />
+    <TypeScriptCompile Include="app\components\goods\components\good\good.component.ts" />
+    <TypeScriptCompile Include="app\components\goods\components\new-good\new-good.component.ts" />
+    <TypeScriptCompile Include="app\components\goods\models\good.model.ts" />
+    <TypeScriptCompile Include="app\components\goods\services\good.service.ts" />
     <TypeScriptCompile Include="app\components\header\header.component.ts" />
     <TypeScriptCompile Include="app\components\page-not-found\page-not-found.component.ts" />
     <TypeScriptCompile Include="app\main.ts" />
