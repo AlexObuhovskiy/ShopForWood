@@ -37,4 +37,9 @@ export class GoodService {
         return this.http.put('/api/goods/', good)
             .map((response: Response) => response.status);
     }
+
+    public getGoodImage(id: number) {
+        return this.http.get('/api/goods/good-image/' + id)
+            .map((response) => response.json())
+    }
 }
