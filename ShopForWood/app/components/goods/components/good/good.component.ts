@@ -9,11 +9,11 @@ import { Good } from '../../models/good.model';
     template: `
         <div class="main">
             <div class="name">
-                {{instance.name}}
+                {{good.name}}
             </div>
             <div class="description">
                 <label for="description">Description:</label>
-                <span id="description">{{instance.description}}</span>
+                <span id="description">{{good.description}}</span>
             </div>
             <button class="remove" (click)="remove()"></button>
             <button (click)='editGood()'>Edit</button>
@@ -22,7 +22,7 @@ import { Good } from '../../models/good.model';
     styleUrls: ['./good.component.css']
 })
 export class GoodComponent implements OnInit {
-    @Input() instance: Good;
+    @Input() good: Good;
     @Output() delete: EventEmitter<number> = new EventEmitter<number>();
 
     constructor(private _router: Router) { }
@@ -30,10 +30,10 @@ export class GoodComponent implements OnInit {
     ngOnInit() { }
 
     private remove() {
-        this.delete.emit(this.instance.goodId);
+        this.delete.emit(this.good.goodId);
     }
 
     private editGood() {
-        this._router.navigate(['/edit-good', this.instance.goodId]);
+        this._router.navigate(['/edit-good', this.good.goodId]);
     }
 }

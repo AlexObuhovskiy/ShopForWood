@@ -6,21 +6,23 @@ using System.Web.Http.Description;
 using System.Data.Entity;
 using System.Net;
 using System.Linq;
+using ShopForWood.ViewModels;
 
 namespace ShopForWood.Controllers
 {
+    [RoutePrefix("api/goods")]
     public class GoodsController : ApiController
     {
         private DatabaseContext db = new DatabaseContext();
 
-        //Creating a method to return Json data   
+        [Route("", Name = "GetGoods")]
         [HttpGet]
-        public IHttpActionResult Get()
+        public IHttpActionResult GetGoods()
         {
             try
             {
                 //Prepare data to be returned using Linq as follows  
-                var result = db.Goods;
+                var result = db.Goods.Select(GoodViewModel.ToGoodViewModel);
 
                 return Ok(result);
             }
@@ -31,6 +33,7 @@ namespace ShopForWood.Controllers
             }
         }
 
+        [Route("{id}")]
         [ResponseType(typeof(Good))]
         public IHttpActionResult GetGood(int id)
         {
@@ -43,8 +46,10 @@ namespace ShopForWood.Controllers
             return Ok(good);
         }
 
+        [Route("")]
+        [HttpPut]
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutGood([FromBody] Good good)
+        public IHttpActionResult EditGood([FromBody] Good good)
         {
             if (!ModelState.IsValid)
             {
@@ -72,10 +77,10 @@ namespace ShopForWood.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Goods
+        [Route("")]
         [ResponseType(typeof(Good))]
         [HttpPost]
-        public IHttpActionResult PostGood([FromBody] Good good)
+        public IHttpActionResult CreateGood([FromBody] Good good)
         {
             if (!ModelState.IsValid)
             {
@@ -84,11 +89,11 @@ namespace ShopForWood.Controllers
 
             db.Goods.Add(good);
             db.SaveChanges();
-
-            return CreatedAtRoute("DefaultApi", new { id = good.GoodId }, good);
+            
+            return CreatedAtRoute("GetGoods", new { id = good.GoodId }, good);
         }
 
-        // DELETE: api/Goods/{id}
+        [Route("{id}")]
         [ResponseType(typeof(Good))]
         [HttpDelete]
         public IHttpActionResult DeleteGood(int id)
@@ -105,6 +110,24 @@ namespace ShopForWood.Controllers
             return Ok(good);
         }
 
+        [Route("good-image/{id}")]
+        [HttpGet]
+        public IHttpActionResult GetGoodImage(int id)
+        {
+            var good = db.Goods.Find(id);
+
+            if (good == null)
+            {
+                return NotFound();
+            }
+
+            var result = Convert.ToBase64String(good.ImageContent);
+
+            return Ok(result);
+        }
+
+        #region private methods
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -118,5 +141,7 @@ namespace ShopForWood.Controllers
         {
             return db.Goods.Count(e => e.GoodId == id) > 0;
         }
+
+        #endregion
     }
 }
