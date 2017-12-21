@@ -11,7 +11,7 @@ import { Good } from '../../models/good.model';
     template: `
         <div *ngIf="goods !== undefined">
             <div *ngFor="let good of goods">
-                <good [instance]="good" (delete)="deleted($event)"></good>
+                <good [good]="good" (delete)="deleted($event)"></good>
             </div>
         </div>
     `,

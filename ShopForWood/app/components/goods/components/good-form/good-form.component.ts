@@ -14,6 +14,9 @@ import { Good } from '../../models/good.model';
             <div>
                 <input type="text" [(ngModel)]="good.description"/>
             </div>
+            <div>
+                <input fileupload="ImgSrc.Image" type="file"/>
+            </div>
             <button (click)="SubmitFrom()">{{submitButtonName}}</button>
         </div>
     `,
