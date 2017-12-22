@@ -8,6 +8,7 @@ namespace ShopForWood.ViewModels
         public string Name { get; set; }
         public string Description { get; set; }
         public double Price { get; set; }
+        public string ImageName { get; set; }
 
         public static GoodViewModel ToGoodViewModel(Good good)
         {
@@ -16,7 +17,8 @@ namespace ShopForWood.ViewModels
                 GoodId = good.GoodId,
                 Description = good.Description,
                 Name = good.Name,
-                Price = good.Price
+                Price = good.Price,
+                ImageName = good.ImageName
             };
 
             return goodViewModel;

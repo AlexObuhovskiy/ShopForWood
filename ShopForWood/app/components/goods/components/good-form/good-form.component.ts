@@ -15,7 +15,7 @@ import { Good } from '../../models/good.model';
                 <input type="text" [(ngModel)]="good.description"/>
             </div>
             <div>
-                <input fileupload="ImgSrc.Image" type="file"/>
+                <input type="file" (change)="onImageChange($event)"/>
             </div>
             <button (click)="SubmitFrom()">{{submitButtonName}}</button>
         </div>
@@ -26,10 +26,18 @@ export class GoodFormComponent implements OnInit {
     @Input() good: Good = new Good();
     @Input() submitButtonName: string;
     @Output() submit: EventEmitter<Good> = new EventEmitter<Good>();
+    @Output() imageChange: EventEmitter<File> = new EventEmitter<File>();
 
     constructor(private _router: Router) { }
 
     ngOnInit() { }
+
+    private onImageChange(event: any) {
+        let files: FileList = (<HTMLInputElement>event.srcElement).files;
+        if (files.length > 0) {
+            this.imageChange.emit(files[0]);
+        }
+    }
 
     private SubmitFrom() {
         this.submit.emit(this.good);

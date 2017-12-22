@@ -48,6 +48,11 @@ button.remove {
         background-image: url(Images/remove-clicked.png);
     }
 
+.image img {
+    max-width: 250px;
+    max-height: 250px;
+}
+
 span {
     color: red;
 }
