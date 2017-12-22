@@ -19,7 +19,7 @@ import { Good } from '../../models/good.model';
                 <label for="description">Description:</label>
                 <span id="description">{{good.description}}</span>
             </div>
-            <div class="image">
+            <div *ngIf="good.imageName" class="image">
                 <img [src]="getImageSrc()" />
             </div>
             <button class="remove" (click)="remove()"></button>
