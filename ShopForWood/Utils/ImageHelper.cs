@@ -11,7 +11,7 @@ namespace ShopForWood.Utils
         /// </summary>
         /// <param name="goodId"></param>
         /// <param name="files"></param>
-        /// <returns></returns>
+        /// <returns>Image name</returns>
         public static string SaveImageForGood(int goodId, HttpFileCollection files)
         {
             string imageName = string.Empty;

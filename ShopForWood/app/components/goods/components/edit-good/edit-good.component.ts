@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs/Observable';
 import { Component, OnInit, Input, OnDestroy, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { Params, ActivatedRoute, Router } from '@angular/router';
 import { Good } from '../../models/good.model';
@@ -12,6 +13,7 @@ import 'rxjs/add/operator/mergeMap';
         <good-form 
             [good]="good"
             [submitButtonName]="submitButtonName"
+            (imageChange)="imageChanged($event)"
             (submit)="Save()">
         </good-form>
     `,
@@ -23,6 +25,7 @@ export class EditGoodComponent implements OnInit, OnDestroy {
     private goodId: number;
     private subscription: Subscription;
     private good: Good;
+    private image: File;
     private submitButtonName: string = 'Save';
 
     constructor(
@@ -50,8 +53,20 @@ export class EditGoodComponent implements OnInit, OnDestroy {
         }
     }
 
+    private imageChanged(imageFile: File) {
+        this.image = imageFile;
+    }
+
     private Save() {
         this._goodService.editGood(this.good)
+            // Save image to server after creation of the good
+            .mergeMap(() => {
+                if (this.image === undefined) {
+                    return Observable.of(201);
+                }
+
+                return this._goodService.addGoodImage(this.good.goodId, this.image)
+            })
             .subscribe(() => this._router.navigate(['']));
     }
 }
