@@ -38,6 +38,14 @@ export class GoodService {
             .map((response: Response) => response.status);
     }
 
+    public addGoodImage(goodId: number, image: File) {
+        let formData: FormData = new FormData();
+        formData.append('ImageForGood', image, image.name)
+
+        return this.http.post('/api/goods/good-image/' + goodId, formData)
+            .map((response: Response) => response.status);
+    }
+
     public getGoodImage(id: number) {
         return this.http.get('/api/goods/good-image/' + id)
             .map((response) => response.json())

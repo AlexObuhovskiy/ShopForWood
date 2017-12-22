@@ -318,3 +318,4 @@ ASALocalRun/
 *.binlog
 ShopForWood/app/**/*.js.map
 ShopForWood/app/**/*.js
+ShopForWood/Images/Goods/
