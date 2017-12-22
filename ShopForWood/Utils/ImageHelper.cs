@@ -1,5 +1,4 @@
-﻿using ShopForWood.Models;
-using System.IO;
+﻿using System.IO;
 using System.Linq;
 using System.Web;
 
@@ -7,8 +6,6 @@ namespace ShopForWood.Utils
 {
     public class ImageHelper
     {
-        
-
         /// <summary>
         /// Saves image from request for good
         /// </summary>
@@ -33,7 +30,11 @@ namespace ShopForWood.Utils
             return imageName;
         }
 
-        public static void DeleteImageForGood(string imageName)
+        /// <summary>
+        /// Delete good's image
+        /// </summary>
+        /// <param name="imageName"></param>
+        public static void DeleteImageForGoodByName(string imageName)
         {
             var filePath = GetPathOfImageForGood(imageName);
             if (string.IsNullOrEmpty(filePath))
