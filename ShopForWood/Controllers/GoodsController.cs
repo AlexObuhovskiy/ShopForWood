@@ -104,7 +104,7 @@ namespace ShopForWood.Controllers
                 return NotFound();
             }
 
-            ImageHelper.DeleteImageForGood(good.ImageName);
+            ImageHelper.DeleteImageForGoodByName(good.ImageName);
             db.Goods.Remove(good);
             db.SaveChanges();
 
