@@ -122,6 +122,7 @@ namespace ShopForWood.Controllers
                 return NotFound();
             }
 
+            ImageHelper.DeleteImageForGoodByName(good.ImageName);
             good.ImageName = ImageHelper.SaveImageForGood(good.GoodId, HttpContext.Current.Request.Files);
             db.Entry(good).State = EntityState.Modified;
             db.SaveChanges();
