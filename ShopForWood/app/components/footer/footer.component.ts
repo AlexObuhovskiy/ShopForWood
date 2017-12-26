@@ -3,9 +3,13 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
     moduleId: module.id,
-    selector: 'footer',
+    selector: 'footer-component',
     template: `
-        <h1>Footer</h1>
+        <footer id="footer" class="app-footer">
+            <div class="container-fluid">
+                I am the footer here. Please help fix me!
+            </div>
+        </footer>
     `,
     styleUrls: ['./footer.component.css']
 })

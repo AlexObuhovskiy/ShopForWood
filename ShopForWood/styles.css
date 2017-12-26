@@ -1,3 +1,19 @@
-body {
+* {
+  box-sizing: border-box;
+}
+
+html, body {
   font: 16px/1.65em "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  min-height: 100%;
+  margin: 0;
+}
+
+html {
+  overflow-x: hidden;
+  margin-right: calc(100% - 100vw);
+}
+
+body {
+  background: transparent;
+  line-height: 1.4;
 }

@@ -4,8 +4,10 @@ import { Component, OnInit } from '@angular/core';
     moduleId: module.id,
     selector: 'content',
     template: `
-        <div>
-            <router-outlet></router-outlet>
+        <div class="main">
+            <div class="main-container">
+                <router-outlet></router-outlet>
+            </div>
         </div>
     `,
     styleUrls: ['./content.component.css']
