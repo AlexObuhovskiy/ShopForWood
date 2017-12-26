@@ -94,6 +94,7 @@
   <ItemGroup>
     <Content Include="app\components\content\content.component.css" />
     <Content Include="app\components\footer\footer.component.css" />
+    <Content Include="app\components\footer\footer.component.html" />
     <Content Include="app\components\goods\components\edit-good\edit-good.component.css" />
     <Content Include="app\components\goods\components\good-form\good-form.component.css" />
     <Content Include="app\components\goods\components\good\good.component.css" />

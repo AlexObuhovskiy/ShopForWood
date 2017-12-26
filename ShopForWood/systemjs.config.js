@@ -25,6 +25,7 @@
 
             // other libraries
             'rxjs': 'npm:rxjs',
+            'angular2-fontawesome': 'node_modules/angular2-fontawesome',
             'angular-in-memory-web-api': 'npm:angular-in-memory-web-api/bundles/in-memory-web-api.umd.js'
         },
         // packages tells the System loader how to load when no filename and/or no extension
@@ -34,7 +35,8 @@
             },
             rxjs: {
                 defaultExtension: 'js'
-            }
+            },
+            'angular2-fontawesome': { defaultExtension: 'js' }
         }
     });
 })(this);
