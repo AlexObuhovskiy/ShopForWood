@@ -5,7 +5,9 @@ import { Component, OnInit } from '@angular/core';
     moduleId: module.id,
     selector: 'about',
     template: `
-        <h1>About</h1>
+        <div>
+            About
+        </div>
     `
 })
 
