@@ -1,9 +1,10 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component } from "@angular/core";
+import { Good } from "../goods/models/good.model";
 
 @Component({
     moduleId: module.id,
-    selector: 'about',
+    selector: "about",
     template: `
         <div>
             About
@@ -11,8 +12,6 @@ import { Component, OnInit } from '@angular/core';
     `
 })
 
-export class AboutComponent implements OnInit {
-    constructor() { }
+export class AboutComponent {
 
-    ngOnInit() { }
 }

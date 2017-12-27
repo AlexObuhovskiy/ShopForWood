@@ -1,23 +1,23 @@
-import { Observable } from 'rxjs/Observable';
-import { Component, OnInit, Input, OnDestroy, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
-import { Params, ActivatedRoute, Router } from '@angular/router';
-import { Good } from '../../models/good.model';
-import { GoodService } from '../../services/good.service';
-import { Subscription } from 'rxjs/Subscription';
-import 'rxjs/add/operator/mergeMap';
+import { Observable } from "rxjs/Observable";
+import { Component, OnInit, Input, OnDestroy, ChangeDetectionStrategy, ChangeDetectorRef } from "@angular/core";
+import { Params, ActivatedRoute, Router } from "@angular/router";
+import { Good } from "../../models/good.model";
+import { GoodService } from "../../services/good.service";
+import { Subscription } from "rxjs/Subscription";
+import "rxjs/add/operator/mergeMap";
 
 @Component({
     moduleId: module.id,
-    selector: 'edit-good',
+    selector: "edit-good",
     template: `
-        <good-form 
+        <good-form
             [good]="good"
             [submitButtonName]="submitButtonName"
             (imageChange)="imageChanged($event)"
             (submit)="Save()">
         </good-form>
     `,
-    styleUrls: ['./edit-good.component.css'],
+    styleUrls: ["./edit-good.component.css"],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 
@@ -26,7 +26,7 @@ export class EditGoodComponent implements OnInit, OnDestroy {
     private subscription: Subscription;
     private good: Good;
     private image: File;
-    private submitButtonName: string = 'Save';
+    private submitButtonName: string = "Save";
 
     constructor(
         private _goodService: GoodService,
@@ -35,10 +35,11 @@ export class EditGoodComponent implements OnInit, OnDestroy {
         private _router: Router
     ) { }
 
-    ngOnInit() {
+    ngOnInit(): void {
         this.subscription = this._activatedRoute.params
             .mergeMap((params: Params) => {
-                let id = +params['id'];
+                let idString: string = "id";
+                let id: number = +params[idString];
                 return this._goodService.getGood(id);
             })
             .subscribe((good: Good) => {
@@ -47,26 +48,26 @@ export class EditGoodComponent implements OnInit, OnDestroy {
             });
     }
 
-    ngOnDestroy() {
+    ngOnDestroy(): void {
         if (this.subscription !== undefined) {
             this.subscription.unsubscribe();
         }
     }
 
-    private imageChanged(imageFile: File) {
+    private imageChanged(imageFile: File): void {
         this.image = imageFile;
     }
 
-    private Save() {
+    private Save(): void {
         this._goodService.editGood(this.good)
-            // Save image to server after creation of the good
+            // save image to server after creation of the good
             .mergeMap(() => {
                 if (this.image === undefined) {
                     return Observable.of(201);
                 }
 
-                return this._goodService.addGoodImage(this.good.goodId, this.image)
+                return this._goodService.addGoodImage(this.good.goodId, this.image);
             })
-            .subscribe(() => this._router.navigate(['']));
+            .subscribe(() => this._router.navigate([""]));
     }
 }

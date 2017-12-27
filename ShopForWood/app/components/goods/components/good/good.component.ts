@@ -1,15 +1,14 @@
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from "rxjs/Subscription";
 import {
     Component, OnInit, Input, Output, EventEmitter,
     ChangeDetectionStrategy, ChangeDetectorRef
-} from '@angular/core';
-import { Response } from '@angular/http';
-import { Router } from '@angular/router';
-import { Good } from '../../models/good.model';
+} from "@angular/core";
+import { Router } from "@angular/router";
+import { Good } from "../../models/good.model";
 
 @Component({
     moduleId: module.id,
-    selector: 'good',
+    selector: "good",
     template: `
         <div class="main">
             <div class="name">
@@ -26,10 +25,10 @@ import { Good } from '../../models/good.model';
             <button (click)='editGood()'>Edit</button>
         </div>
     `,
-    styleUrls: ['./good.component.css'],
+    styleUrls: ["./good.component.css"],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class GoodComponent implements OnInit {
+export class GoodComponent {
     private imageData: string;
 
     @Input() good: Good;
@@ -40,19 +39,15 @@ export class GoodComponent implements OnInit {
         private _changeDetectorRef: ChangeDetectorRef
     ) { }
 
-    ngOnInit() {
-
-    }
-
     private getImageSrc(): string {
-        return '/Images/Goods/' + this.good.imageName;
+        return "/Images/Goods/" + this.good.imageName;
     }
 
-    private remove() {
+    private remove(): void {
         this.delete.emit(this.good.goodId);
     }
 
-    private editGood() {
-        this._router.navigate(['/edit-good', this.good.goodId]);
+    private editGood(): void {
+        this._router.navigate(["/edit-good", this.good.goodId]);
     }
 }

@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
     moduleId: module.id,
-    selector: 'content',
+    selector: "content",
     template: `
         <div class="main">
             <div class="main-container">
@@ -10,11 +10,9 @@ import { Component, OnInit } from '@angular/core';
             </div>
         </div>
     `,
-    styleUrls: ['./content.component.css']
+    styleUrls: ["./content.component.css"]
 })
 
-export class ContentComponent implements OnInit {
-    constructor() { }
+export class ContentComponent {
 
-    ngOnInit() { }
 }

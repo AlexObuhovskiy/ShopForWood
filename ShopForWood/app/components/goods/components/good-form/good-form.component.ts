@@ -1,11 +1,10 @@
-import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
-import { Response } from '@angular/http';
-import { Router } from '@angular/router';
-import { Good } from '../../models/good.model';
+import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy, ChangeDetectorRef } from "@angular/core";
+import { Router } from "@angular/router";
+import { Good } from "../../models/good.model";
 
 @Component({
     moduleId: module.id,
-    selector: 'good-form',
+    selector: "good-form",
     template: `
         <div *ngIf="good !== undefined">
             <div>
@@ -26,10 +25,10 @@ import { Good } from '../../models/good.model';
             <button (click)="SubmitFrom()">{{submitButtonName}}</button>
         </div>
     `,
-    styleUrls: ['./good-form.component.css'],
+    styleUrls: ["./good-form.component.css"],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class GoodFormComponent implements OnInit {
+export class GoodFormComponent {
     @Input() good: Good = new Good();
     @Input() submitButtonName: string;
     @Output() submit: EventEmitter<Good> = new EventEmitter<Good>();
@@ -43,9 +42,7 @@ export class GoodFormComponent implements OnInit {
         private _changeDetectorRef: ChangeDetectorRef
     ) { }
 
-    ngOnInit() { }
-
-    private onImageChange(event: any) {
+    private onImageChange(event: any): void {
         let files: FileList = (<HTMLInputElement>event.srcElement).files;
         if (files.length > 0) {
             let reader: FileReader = new FileReader();
@@ -54,18 +51,18 @@ export class GoodFormComponent implements OnInit {
             reader.onload = (e: any) => {
                 this.previewUrl = e.target.result;
                 this._changeDetectorRef.markForCheck();
-            }
+            };
 
             reader.readAsDataURL(this.imageFile);
             this.imageChange.emit(files[0]);
         }
     }
 
-    private SubmitFrom() {
+    private SubmitFrom(): void {
         this.submit.emit(this.good);
     }
 
     private getImageSrc(): string {
-        return '/Images/Goods/' + this.good.imageName;
+        return "/Images/Goods/" + this.good.imageName;
     }
 }
