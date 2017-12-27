@@ -6,9 +6,9 @@ import { EditGoodComponent } from "./components/goods/components/edit-good/edit-
 import { NewGoodComponent } from "./components/goods/components/new-good/new-good.component";
 
 export const routes: Routes = [
-    { path: '', component: GoodsGridComponent },
-    { path: 'about', component: AboutComponent },
-    { path: 'new-good', component: NewGoodComponent },    
-    { path: 'edit-good/:id', component: EditGoodComponent },
-    { path: '**', component: PageNotFoundComponent },
+    { path: "", component: GoodsGridComponent },
+    { path: "about", component: AboutComponent },
+    { path: "new-good", component: NewGoodComponent },
+    { path: "edit-good/:id", component: EditGoodComponent },
+    { path: "**", component: PageNotFoundComponent },
 ];

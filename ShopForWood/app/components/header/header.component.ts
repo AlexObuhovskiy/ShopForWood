@@ -1,16 +1,17 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
     moduleId: module.id,
-    selector: 'header',
+    selector: "header",
     template: `
         <div>
             <div>
                 <nav class="navbar navbar-default">
                     <div class="container-fluid">
                         <div class="navbar-header">
-                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <button type="button" class="navbar-toggle collapsed"
+                                data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                                 <span class="sr-only">Toggle navigation</span>
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
@@ -37,11 +38,9 @@ import { Component, OnInit } from '@angular/core';
             </div>
         </div>
     `,
-    styleUrls: ['./header.component.css']
+    styleUrls: ["./header.component.css"]
 })
 
-export class HeaderComponent implements OnInit {
-    constructor() { }
+export class HeaderComponent {
 
-    ngOnInit() { }
 }

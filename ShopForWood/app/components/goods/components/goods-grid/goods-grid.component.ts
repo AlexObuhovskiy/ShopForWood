@@ -1,13 +1,13 @@
 import {
     Component, OnInit, OnDestroy,
     ChangeDetectorRef, ChangeDetectionStrategy
-} from '@angular/core';
-import { Subscription } from 'rxjs/Subscription';
-import { GoodService } from '../../services/good.service';
-import { Good } from '../../models/good.model';
+} from "@angular/core";
+import { Subscription } from "rxjs/Subscription";
+import { GoodService } from "../../services/good.service";
+import { Good } from "../../models/good.model";
 
 @Component({
-    selector: 'goods-grid',
+    selector: "goods-grid",
     template: `
         <div *ngIf="goods !== undefined">
             <div *ngFor="let good of goods">
@@ -29,15 +29,15 @@ export class GoodsGridComponent implements OnInit, OnDestroy {
         this.newGood = new Good();
     }
 
-    ngOnInit() {
+    ngOnInit(): void {
         this.updateGoods();
     }
 
-    ngOnDestroy() {
+    ngOnDestroy(): void {
         this.goodSubscription.unsubscribe();
     }
 
-    private updateGoods() {
+    private updateGoods(): void {
         this.goodSubscription = this._goodService.getAllGoods()
             .subscribe((goods: Good[]) => {
                 this.goods = goods;
@@ -45,7 +45,7 @@ export class GoodsGridComponent implements OnInit, OnDestroy {
             });
     }
 
-    private deleted(goodIdForDelete: number) {
+    private deleted(goodIdForDelete: number): void {
         this._goodService.deleteGood(goodIdForDelete)
             .subscribe((deletedGood: Good) => {
                 let indexForDelete: number = this.goods.findIndex((g: Good) => g.goodId === deletedGood.goodId);
