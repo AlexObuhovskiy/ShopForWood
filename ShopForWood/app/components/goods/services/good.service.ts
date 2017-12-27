@@ -33,22 +33,14 @@ export class GoodService {
             .map((response) => <Good>response);
     }
 
-    public editGood(good: Good): Observable<number> {
-        return this.http.put("/api/goods/", good)
-            .map((response) => {
-                console.log(response);
-                return 0;
-            });
+    public editGood(good: Good): Observable<Object> {
+        return this.http.put("/api/goods/", good);
     }
 
-    public addGoodImage(goodId: number, image: File): Observable<number> {
+    public addGoodImage(goodId: number, image: File): Observable<Object> {
         let formData: FormData = new FormData();
         formData.append("ImageForGood", image, image.name);
 
-        return this.http.post("/api/goods/good-image/" + goodId, formData)
-            .map((response) => {
-                console.log(response);
-                return 0;
-            });
+        return this.http.post("/api/goods/good-image/" + goodId, formData);
     }
 }
